@@ -16,8 +16,15 @@ use Google\TagManager\Helper\Data as GtmHelper;
 /**
  * Google Tag Manager Page Block
  */
-class Gtm extends Template
+class DataLayer extends Template
 {
+    /**
+     * Data Layer Variables
+     *
+     * @var array;
+     */
+    protected $_variables = array();
+
     /**
      * Google Tag Manager data
      *
@@ -40,23 +47,14 @@ class Gtm extends Template
      */
     public function __construct(
         Context $context,
-        CookieHelper $cookieHelper,
         GtmHelper $gtmHelper,
+        CookieHelper $cookieHelper,
         array $data = []
     ) {
-        $this->_cookieHelper = $cookieHelper;
-        $this->_gtmHelper = $gtmHelper;
+        $this->_cookieHelper= $cookieHelper;
+        $this->_gtmHelper   = $gtmHelper;
         parent::__construct($context, $data);
-    }
-
-    /**
-     * Get Account Id
-     *
-     * @return mixed
-     */
-    public function getAccountId()
-    {
-        return $this->_gtmHelper->getAccountId();
+        $this->_variables['ecommerce']['currencyCode'] = $this->_storeManager->getStore()->getCurrentCurrency()->getCode();
     }
 
     /**
@@ -71,5 +69,22 @@ class Gtm extends Template
         }
 
         return parent::_toHtml();
+    }
+
+    /**
+     * Return Data Layer Variables
+     *
+     * @return array
+     */
+    public function getVariables()
+    {
+        return $this->_variables;
+    }
+
+    public function addVariable($name, $value)
+    {
+        if (!empty($name) && !empty($value)) {
+            $this->_variables[$name] = $value;
+        }
     }
 }

@@ -1,10 +1,10 @@
 <?php
 /**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
+ * Google TagManager - Magento 2 Module
+ *
+ * @author     Narayan Varma <n@varma.me.uk>
+ * @license    http://opensource.org/licenses/MIT
  */
-
-// @codingStandardsIgnoreFile
 
 namespace Google\TagManager\Helper;
 
@@ -26,23 +26,21 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     /**
      * Whether Tag Manager is ready to use
      *
-     * @param null|string|bool|int|Store $store
      * @return bool
      */
-    public function isEnabled($store = null)
+    public function isEnabled()
     {
-        $accountId = $this->scopeConfig->getValue(self::XML_PATH_ACCOUNT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $store);
-        return $accountId && $this->scopeConfig->isSetFlag(self::XML_PATH_ACTIVE, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $store);
+        $accountId = $this->scopeConfig->getValue(self::XML_PATH_ACCOUNT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $accountId && $this->scopeConfig->isSetFlag(self::XML_PATH_ACTIVE, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
     /**
      * Get Tag Manager Account ID
      *
-     * @param null|string|bool|int|Store $store
-     * @return bool
+     * @return bool | null | string
      */
-    public function getAccountId($store = null)
+    public function getAccountId()
     {
-        return $this->scopeConfig->getValue(self::XML_PATH_ACCOUNT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $store); 
+        return $this->scopeConfig->getValue(self::XML_PATH_ACCOUNT, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 }

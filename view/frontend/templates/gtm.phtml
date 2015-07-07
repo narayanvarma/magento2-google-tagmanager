@@ -1,14 +1,12 @@
 <?php
 /**
- * Copyright © 2015 Magento. All rights reserved.
- * See COPYING.txt for license details.
+ * Google TagManager - Magento 2 Module
+ *
+ * @author     Narayan Varma <n@varma.me.uk>
+ * @license    http://opensource.org/licenses/MIT
  */
-
-// @codingStandardsIgnoreFile
-
 ?>
 <?php /** @var $block \Google\TagManager\Block\Gtm */ ?>
-<?php if (!$this->helper('Magento\Cookie\Helper\Cookie')->isUserNotAllowSaveCookie()): ?>
 <!-- Google Tag Manager -->
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=<?php echo $block->getAccountId(); ?>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -18,4 +16,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','<?php echo $block->getAccountId(); ?>');</script>
 <!-- End Google Tag Manager -->
-<?php endif; ?>

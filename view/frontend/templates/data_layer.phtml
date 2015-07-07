@@ -1,0 +1,13 @@
+<?php
+/**
+ * Google TagManager - Magento 2 Module
+ *
+ * @author     Narayan Varma <n@varma.me.uk>
+ * @license    http://opensource.org/licenses/MIT
+ */
+?>
+<?php /** @var $block \Google\TagManager\Block\DataLayer */ ?>
+<?php $variables = $block->getVariables(); ?>
+<?php if(!empty($variables)): ?>
+    <script>dataLayer = [<?php echo json_encode($variables); ?>];</script>
+<?php endif; ?>

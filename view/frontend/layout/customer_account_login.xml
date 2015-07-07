@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Google TagManager - Magento 2 Module
+ *
+ * @author     Narayan Varma <n@varma.me.uk>
+ * @license    http://opensource.org/licenses/MIT
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="gtm_data_layer">
+            <action method="addVariable">
+                <argument name="name" xsi:type="string">pageCategory</argument>
+                <argument name="value" xsi:type="string">customer-login</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>
