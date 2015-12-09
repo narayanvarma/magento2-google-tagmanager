@@ -11,7 +11,7 @@
     <body>
         <referenceContainer name="after.body.start">
             <block class="Google\TagManager\Block\DataLayer" name="gtm_data_layer" as="gtm_data_layer" template="data_layer.phtml"/>
-            <block class="Google\TagManager\Block\Gtm" name="gtm_snippet" as="gtm_snippet" template="gtm.phtml"/>
+            <block class="Google\TagManager\Block\Gtm" name="gtm_snippet" as="gtm_snippet" template="gtm.phtml" cacheable="false" />
         </referenceContainer>
     </body>
 </page>
